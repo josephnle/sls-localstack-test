@@ -1,0 +1,15 @@
+{
+  "name": "sls-localstack-test",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "deploy": "yarn deploy:a && yarn deploy:b",
+    "deploy:a": "sls deploy",
+    "deploy:b": "sls deploy -c serverless-b.yml"
+  },
+  "devDependencies": {
+    "serverless": "^1.38.0",
+    "serverless-localstack": "^0.4.27"
+  }
+}

@@ -1,0 +1,18 @@
+service: api
+
+plugins:
+  - serverless-localstack
+
+provider:
+  name: aws
+  runtime: nodejs10.x
+  region: us-east-1
+  stage: ${opt:stage, 'local'}
+  environment:
+    ARTIFACT_TOPIC: ${cf:notifications-${self:provider.stage}.ArtifactChanges}
+
+custom:
+  localstack:
+    stages:
+      - local
+    autostart: true
